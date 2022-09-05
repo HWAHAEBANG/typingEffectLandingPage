@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;  /* 의미 찾아보기 */
+}
+
+body {
+  background-color: darkslateblue;
+}
+
+.wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+}
+
+.material-symbols-outlined {
+  font-size: 10rem;
+}
+
+.lg-text {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.sm-text {
+  font-size: 1.5rem;
+}
+
+#dynamic{
+  position:relative;
+  display: inline-block;
+  /* 글자 수가 줄어들 때, 커서가 마지막 글자에 붙어있지 않는 이유는. P태그가 블록요소이기 때문임
+  따라서, 이를 인라인 요소와 불록요소의 성격들 둘다 가지고 있는  display: inline-block로 변환함.*/
+}
+
+#dynamic::after{
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: -10px; /* 오른쪽에서부터 재니까 마이너스를 붙여줘야한다. */
+  width: 4px;
+  height: 100%;
+  background-color: white;
+}
+
+#dynamic.active::after {
+  display: none;
+}
